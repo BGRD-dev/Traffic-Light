@@ -30,7 +30,7 @@ class ViewController: UIViewController {
         greenLightView.alpha = lightStatusOff
         greenLightView.layer.cornerRadius = greenLightView.frame.width / 2
         
-        actionButton.layer.cornerRadius = 20
+        actionButton.layer.cornerRadius = actionButton.frame.width / 10
     }
     
     @IBAction func actionButtonPressed() {
