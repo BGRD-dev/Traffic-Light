@@ -15,34 +15,35 @@ class ViewController: UIViewController {
     @IBOutlet var greenLightView: UIView!
     @IBOutlet var actionButton: UIButton!
     
-
+    let lightStatusOn: CGFloat = 1.0
+    let lightStatusOff: CGFloat = 0.3
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        redLightView.alpha = 0.3
+        redLightView.alpha = lightStatusOff
         redLightView.layer.cornerRadius = redLightView.frame.width / 2
         
-        yellowLightView.alpha = 0.3
+        yellowLightView.alpha = lightStatusOff
         yellowLightView.layer.cornerRadius = yellowLightView.frame.width / 2
         
-        greenLightView.alpha = 0.3
+        greenLightView.alpha = lightStatusOff
         greenLightView.layer.cornerRadius = greenLightView.frame.width / 2
         
         actionButton.layer.cornerRadius = 20
     }
     
     @IBAction func actionButtonPressed() {
-        if redLightView.alpha != 1 && yellowLightView.alpha != 1 {
-            redLightView.alpha = 1
-            greenLightView.alpha = 0.3
+        if redLightView.alpha != lightStatusOn && yellowLightView.alpha != lightStatusOn {
+            redLightView.alpha = lightStatusOn
+            greenLightView.alpha = lightStatusOff
             actionButton.setTitle("NEXT", for: .normal)
-        }else if redLightView.alpha == 1 {
-            redLightView.alpha = 0.3
-            yellowLightView.alpha = 1
+        }else if redLightView.alpha == lightStatusOn {
+            redLightView.alpha = lightStatusOff
+            yellowLightView.alpha = lightStatusOn
         }else{
-            yellowLightView.alpha = 0.3
-            greenLightView.alpha = 1
+            yellowLightView.alpha = lightStatusOff
+            greenLightView.alpha = lightStatusOn
         }
     }
     
